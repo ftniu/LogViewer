@@ -130,7 +130,8 @@ class LogViewerController extends Controller
      */
     public function download($date)
     {
-        return $this->logViewer->download($date);
+        $file_name = config('log-viewer.download.prefix').$date.'.'.config('log-viewer.download.extension');
+        return $this->logViewer->download($date,$file_name);
     }
 
     /**
